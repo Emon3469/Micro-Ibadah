@@ -1,16 +1,74 @@
-# React + Vite
+# Micro-Ibadah
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Micro-Ibadah is a full-stack web application with:
+- `client`: React + Vite frontend
+- `server`: Node.js + Express backend API
 
-Currently, two official plugins are available:
+## Repository Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```text
+Micro-Ibadah/
+  client/   # Frontend (React + Vite)
+  server/   # Backend (Express + MongoDB)
+  docker-compose.yml
+```
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js 18+
+- npm
+- Docker (optional, for containerized run)
 
-## Expanding the ESLint configuration
+## Local Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Configure environment variables
+
+- Copy `server/.env.example` to `server/.env` and fill in required values.
+- Copy `client/.env.example` to `client/.env` if needed.
+
+### 2. Run backend
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+Backend runs on `http://localhost:5000`.
+
+### 3. Run frontend
+
+Open a new terminal:
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Frontend runs on Vite default URL (usually `http://localhost:5173`).
+
+## Run with Docker
+
+From repo root:
+
+```bash
+docker compose up --build
+```
+
+- Frontend: `http://localhost:8080`
+- Backend: `http://localhost:5000`
+
+## Available Scripts
+
+### Client (`client/package.json`)
+
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
+- `npm run lint`
+
+### Server (`server/package.json`)
+
+- `npm run dev`
+- `npm start`
